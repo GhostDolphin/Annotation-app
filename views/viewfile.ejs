@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/file.css" />
+	<link rel="stylesheet" type="text/css" href="/css/viewfile.css" />
+	<title>VIEW <%= fileName %></title>
+</head>
+<body>
+
+<div class="centerBox">
+	<div class="viewBlock">
+		<table class="fileTop">
+			<tbody>
+				<tr>
+					<td class="fileName">
+						<div id="file_name"><%= fileName %></div>
+					</td>
+					<td class="fileActions">
+						<div id="markdown" class="fileMarkdown">
+                
+							  <div id="mrkdwn_type" class="markdownLabel">NER</div>
+                <input type="hidden" id="markdownType" name="markdownType" value="NER">
+							  <div class="fileDrpDn">
+								  <div id="mrkdwn_0" class="fileDrpItm" onclick="chooseMarkdown('mrkdwn_0')">NER</div>
+								  <div id="mrkdwn_1" class="fileDrpItm" onclick="chooseMarkdown('mrkdwn_1')">SENTIMENT</div>
+								  <div id="mrkdwn_2" class="fileDrpItm" onclick="chooseMarkdown('mrkdwn_2')">INTENTION</div>
+							  </div>
+
+						</div>
+						<div id="progress" class="fileProgress">
+							<progress class="progressBar" max="100" value="66"></progress>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="fileLine"></div>
+		<div class="content">
+      		<%= file %>
+		</div>
+		<div class="fileLine"></div>
+		<table class="fileBottom">
+			<tbody>
+				<tr>
+					<td class="backBtn">
+						<div id="file_back" class="fileBtn" onclick="history.back()">BACK</div>
+					</td>
+					<td class="editBtn">
+						<a href="/editfile/<%= fileId %>/<%= markdown %>/<%= firstPartial %> " id="file_edit" class="fileBtn">EDIT</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- <script type="text/javascript">
+	const MRKDWN_LABEL = 'NER',
+	MRKDWN_OPTIONS = [
+		{
+			label: 'NER',
+			chosen: false
+		},
+		{
+			label: 'Sentiment',
+			chosen: false
+		},
+		{
+			label: 'Intent Recognition',
+			chosen: false
+    }
+	];
+
+	const select = num => {
+		const option = MRKDWN_OPTIONS[num];
+
+		if (!option.chosen) {
+			option.chosen = true;
+
+			for (let i = 0; i < MRKDWN_OPTIONS.length; i++) {
+				const element = document.getElementById(`mrkdwn_${i}`);
+
+				if (i !== num) {
+					MRKDWN_OPTIONS[i].chosen = false;
+					element.classList.remove('chosen');
+				} else {
+					document.getElementById('mrkdwn_type').innerText = option.label;
+          document.getElementById('markdownType').value = option.label;
+					element.classList.add('chosen');
+				}
+			}
+		}
+	};
+
+	for (const option of MRKDWN_OPTIONS) {
+		const id = MRKDWN_OPTIONS.indexOf(option);
+
+		document.getElementById(`mrkdwn_${id}`).textContent += option.label;
+	}
+
+	//document.getElementById('mrkdwn_0').addEventListener('click', async () => select(0));
+
+	//document.getElementById('mrkdwn_1').addEventListener('click', async () => select(1));
+
+	//document.getElementById('mrkdwn_2').addEventListener('click', async () => select(2));
+</script> -->
+
+<script src="/scripts/viewfile.js"></script>
+
+</body>
+</html>

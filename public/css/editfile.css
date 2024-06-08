@@ -1,0 +1,159 @@
+div.editBlock {
+	width: 66.6vw;
+	user-select: none;
+	font-family: "Comfortaa";
+	font-size: 0.75vw;
+}
+
+table.edit {
+	margin: 0;
+	padding: 0;
+	border-spacing: 2vw;
+	width: 100%;
+	box-sizing: border-box;
+}
+table.edit td.editMain, table.edit td.editSide {
+	background-color: #051622;
+	box-shadow: 0 0 0.5vw 0 #000;
+}
+table.edit td.editMain {
+	width: 75%;
+
+}
+table.edit td.editSide {
+	vertical-align: top;
+}
+
+
+
+td.acceptBtn {
+	width: 33%;
+	text-align: left;
+}
+td.clearBtn {
+	width: 33%;
+	text-align: center;
+}
+td.skipBtn {
+	text-align: right;
+}
+
+
+
+div.sideLabel, div.sideInfo	{
+	padding: 1vw;
+	width: 100%;
+	box-sizing: border-box;
+}
+div.sideLabel > p {
+	margin: 0;
+	padding: 0.5vw;
+	color: #DEB992;
+	text-shadow: 0 0 0.25vw #DEB992;
+	font-weight: bold;
+}
+div.sideInfo > div {
+	padding: 0.5vw;
+	width: 100%;
+}
+div.sideInfo p {
+	margin: 0;
+	display: inline-block;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+div.sideInfo p.infoLabel {
+	color: #1BA098;
+	text-shadow: 0 0 0.25vw #1BA098;
+}
+div.sideInfo p.infoValue {
+	color: #DEB992;
+	text-shadow: 0 0 0.25vw #DEB992;
+}
+
+
+
+div.textBlock {
+	width: 100%;
+	box-sizing: border-box;
+}
+div.textBlock > div {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+div.toolbar {
+	padding: 0.5vw;
+	background-color: #1BA098;
+	box-shadow: 0 0 0.25vw 0 #1BA098;
+}
+
+button.toolBtn {
+	display: inline-block;
+	padding: 0.5vw;
+	margin-right: 0.25vw;
+	width: 5vw;
+	outline: none;
+	border: none;
+	background-color: #1BA098;
+	color: #1b2b36;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+	box-shadow: inset 0 0 0 0.08vw #1b2b36;
+	transition: opacity 0.3s ease, background-color 0.3s ease;
+	box-sizing: border-box;
+	user-select: none;
+	font-family: "Comfortaa";
+	font-size: 0.75vw;
+}
+button.toolBtn.person {
+	background-color: #d79bf2;
+	color: #d79bf2;
+	text-shadow: 0 0 0.25vw #d79bf2;
+}
+button.toolBtn.org {
+	background-color: #eff29b;
+	color: #eff29b;
+	text-shadow: 0 0 0.25vw #eff29b;
+}
+button.toolBtn.location {
+	background-color: #9bf2bc;
+	color: #9bf2bc;
+	text-shadow: 0 0 0.25vw #9bf2bc;
+}
+button.toolBtn.other {
+	background-color: #f29b9b;
+	color: #f29b9b;
+	text-shadow: 0 0 0.25vw #f29b9b;
+}
+button.toolBtn.selected {
+	background-color: #1b2b36;
+}
+button.toolBtn:not(.selected) {
+	color: #1b2b36;
+}
+button.toolBtn:hover {
+	opacity: 0.9;
+}
+button.toolBtn.selected:hover {
+	opacity: 1;
+}
+
+div#textArea {
+	padding: 0.5vw;
+	background-color: #0b1b26;
+	font-size: 0.75vw;
+	font-weight: bold;
+	color: #DEB992;
+	overflow-y: auto;
+	line-height: 1.5vw;
+}
+div#textArea span {
+	cursor: pointer;
+	padding: 0.25vw;
+}
+div#textArea span:not(.painted):hover {
+	background-color: #1b2b36;
+}

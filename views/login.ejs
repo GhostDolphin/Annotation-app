@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/auth.css" />
+	<title>LOG IN</title>
+</head>
+<body>
+
+<div class="centerBox">
+	<div class="authBlock">
+		<div class="authHeader">AUTHORIZATION</div>     
+		<div class="authLine"></div>
+    <div class="authMessage">
+      <% if (messages.error) { %>
+        <%= messages.error %>
+        <%} %>
+    </div>
+		<form class="authForm" action="/login" method="POST">
+			<input id="eml" type="email" name="email" placeholder="EMAIL" />
+			<input id="password" type="password" name="password" placeholder="PASSWORD" />
+			<input class="button" id="submit" type="submit" value="LOG IN" />
+		</form>
+		<div class="authSugBtn">
+			DON'T HAVE AN ACCOUNT YET?
+			<a href="./register">REGISTER NOW</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

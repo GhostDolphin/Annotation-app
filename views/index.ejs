@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/panel.css" />
+	<link rel="stylesheet" type="text/css" href="/css/switch.css" />
+	<title>PANEL</title>
+</head>
+<body>
+
+<div class="centerBox">
+	<div class="panelBlock">
+		<table class="panel">
+			<tbody>
+				<tr>
+					<td class="main">
+						<table class="mainTop">
+							<tbody>
+								<tr>
+
+                  <form action="/index" method="GET" id="indexForm">
+									  <td class="switchTab">
+  										<table class="switchTab">
+											  <tbody>
+  												<tr>
+													  <td class="download">DOWNLOAD</td>
+													  <td class="switchBtn">
+  														<label class="switch">
+  															  <input type="checkbox" id="slider" name="slider" onchange="this.form.submit()"
+                                    <% if (sliderValue === "on") { %>checked<% } %>/>
+															    <span class="slider"></span>
+														  </label>
+													  </td>
+													  <td class="edit">EDIT</td>
+												  </tr>
+											  </tbody>
+										  </table>
+									  </td>
+									  <td class="filter">
+  										<div class="filter">
+											  <div class="dropCtgr">
+  												<input id="category" name="category" type="text" placeholder="CATEGORY" value="<%= category %>" onkeyup="filterFunction('category', '.dropItemCategory')" autocomplete="off"/>
+												  <div class="ctgrList">
+  													<% categoriesList.forEach(element => { %>
+                             <div class="dropItemCategory" name="category" id="<%= element.category %>" onclick="dropItemOnClick('category', '<%= element.category %>'); document.forms['indexForm'].submit()"> <%= element.category %> </div>
+                            <% }) %>
+												  </div>
+											  </div>
+											  <div class="dropStl">
+  												<input id="style" name="style" type="text" placeholder="STYLE" value="<%= style %>" onkeyup="filterFunction('style', '.dropItemStyle')" autocomplete="off"/>
+												  <div class="stlList">
+  													<div id="style1" class="dropItemStyle" onclick="dropItemOnClick('style', 'style1'); document.forms['indexForm'].submit()">Style 1</div>
+													  <div id="style2" class="dropItemStyle" onclick="dropItemOnClick('style', 'style2'); document.forms['indexForm'].submit()">Style 2</div>
+													  <div id="style3" class="dropItemStyle" onclick="dropItemOnClick('style', 'style3'); document.forms['indexForm'].submit()">Style 3</div>
+												  </div>
+											  </div>
+										  </div>
+									  </td>
+                  </form>
+
+								</tr>
+							</tbody>
+						</table>
+						<div class="panelLine"></div>
+						<div id="main" class="content" style="color: #DEB992;">
+              <% fileHeaders.forEach(element => { %>  
+                  <div class="fileBlock">
+                    <div class="headOfFile">File #<%=element.file_id%> - <%=element.file_name%></div>
+                    <div class="panelLine"></div>
+                    <div class="fileInfo">
+                    	<div class="adminOfFile">Admin: <%=element.admin_name%></div>
+	                    <form action="/index", method="POST">
+	                      <button class="fileBtn" type="submit">Apply for editing</button>
+	                    </form>
+                    </div>
+                  </div>
+              <% }) %>  
+						</div>
+					</td>
+					<td class="side">
+						<table class="sideTop">
+							<tbody>
+								<tr>
+									<td class="user">
+										<div class="userName">
+											Username
+										</div>
+										<div class="userRole">
+											ROLE
+										</div>
+									</td>
+									<td class="logOut">
+										<form action="/index?_method=DELETE", method="POST">
+                      <button class="logBtn" type="submit">LOG OUT</button>
+                    </form>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="panelLine"></div>
+						<div id="side" class="content" style="color:#DEB992;">
+                <% editedFiles.forEach(element => { %>
+                  <div class="onFileBlock">
+                    <div class="headOfOnFile">File #<%=element.file_id%> - <%=element.file_name%></div>
+                    <a class="viewLink" href="/viewfile/<%= element.file_id %>">VIEW</a>
+                  </div>
+                <% }) %>
+						</div>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<script src="/scripts/script.js"></script>
+
+</body>
+</html>
